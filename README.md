@@ -40,13 +40,13 @@ Be sure to remember to also add these modules to your ```module-info.java``` fil
 ## Resource Acquisition
 I have attempted to use the following, safer and reproducible structure to acquire a media file in the project directory to no avail.
 ```Java
-        URL loc = this.getClass().getClassLoader().getResource("src/main/resources/hellofx/Blend_W-gladRLvno7U.mp4");
+URL loc = this.getClass().getClassLoader().getResource("src/main/resources/hellofx/Blend_W-gladRLvno7U.mp4");
 ```
 
 Although using a more hardcoded path method, the media file was able to be retrieved. This worked for both relative and absolute 
 file paths when running the Java file, but when compressing the project to the jar format, only the absolute path worked.
 ```Java
-        String absolutePath = Paths.get("C:\\Users\\Student\\Google Drive\\Second Year\\Java Projects\\strangeExe\\src\\main\\resources\\hellofx\\Blend_W-gladRLvno7U.mp4").toUri().toString();
+String absolutePath = Paths.get("C:\\Users\\Student\\Google Drive\\Second Year\\Java Projects\\strangeExe\\src\\main\\resources\\hellofx\\Blend_W-gladRLvno7U.mp4").toUri().toString();
 ```
 
 ## To .exe
