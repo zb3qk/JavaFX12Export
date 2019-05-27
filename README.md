@@ -36,6 +36,7 @@ javafx {
 ```
 
 Be sure to remember to also add these modules to your ```module-info.java``` file as described in the setup tutorial.
+If you want a more general JavaFX 12/Gradle project, take a look at this <a href="https://github.com/openjfx/samples/tree/master/HelloFX/Gradle">OpenJFX example</a>.
 
 ## Resource Acquisition
 I have attempted to use the following, safer and reproducible structure to acquire a media file in the project directory to no avail.
