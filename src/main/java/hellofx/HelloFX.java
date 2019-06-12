@@ -23,15 +23,22 @@ public class HelloFX extends Application {
         Scene scene = new Scene(new Group(), 640, 360);
         stage.setScene(scene);
 
+        //Get image (UNUSED)
         File file = new File("src/main/resources/imgs/maxresdefault.jpg");
-        final URL resource = getClass().getResource("imgs/Blend_W-gladRLvno7U.mp4");
-        String loc = this.getClass().getResource("Blend_W-gladRLvno7U.mp4").toString();
 
+        //Failed Attempt to retrieve video
+        final URL resource = HelloFX.class.getResource("imgs/Blend_W-gladRLvno7U.mp4");
 
-        String test = Paths.get("src/main/resources/hellofxBlend_W-gladRLvno7U.mp4").toUri().toString();
+        //Another Failed Attempt to retrieve video
+        URL loc = this.getClass().getClassLoader().getResource("src/main/resources/hellofx/Blend_W-gladRLvno7U.mp4");
+
+        URL relativeLoc = this.getClass().getClassLoader().getResource("/hellofx/Blend_W-gladRLvno7U.mp4");
+
+        //Fully successful Attempt to retrieve video
+        String absolutePath = Paths.get("C:\\Users\\Student\\Google Drive\\Second Year\\Java Projects\\strangeExe\\src\\main\\resources\\hellofx\\Blend_W-gladRLvno7U.mp4").toUri().toString();
+
         //Set up Media
-        String source  = "src/main/resources/imgs/Blend_W-gladRLvno7U.mp4";
-        Media media = new Media(loc);
+        Media media = new Media(absolutePath);
         // Create the player and set to play automatically.
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
@@ -40,12 +47,12 @@ public class HelloFX extends Application {
         MediaView mediaView = new MediaView(mediaPlayer);
         ((Group) scene.getRoot()).getChildren().add(mediaView);
 
-//
+        //Box to to fit an image
 //        HBox hbox = new HBox(imageView);
-//
-//        //Scene scene = new Scene(root);
+
+//        Scene scene = new Scene(root);
 //        Scene scene = new Scene(hbox, 1280, 720);
-        //scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
+//        scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
 
         stage.setTitle("JavaFX and Gradle");
         stage.setScene(scene);
